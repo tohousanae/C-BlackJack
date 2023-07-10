@@ -70,150 +70,140 @@ int game() // 主菜單
     int playerAceCount = 0, dealerAceCount = 0;
     char command = 0;
     int n = 0; // 初始化
-    while (!command)
+    command = getchar();
+    switch (command)
     {
-        command = getchar();
-        switch (command)
+    case 'p':
+        printf("玩家的牌：\n");
+        for (int i = 0; i < 2; i++) // 玩家顯示初始牌
         {
-        case 'p':
-            printf("玩家的牌：\n");
-            for (int i = 0; i < 2; i++) // 玩家顯示初始牌
+            srand(time(NULL) + i);
+            playerpoints += Blackjack(0, &playerAceCount);
+        }
+        printf("玩家點數： %d\n", playerpoints);
+        printf("莊家的牌：\n");
+        for (int i = 2; i < 4; i++) // 莊家顯示初始牌
+        {
+            srand(time(NULL) - i);
+            dealerpoints += Blackjack(i != 3, &dealerAceCount);
+        }
+        printf("\n");
+        char command = getchar();
+        printf("是否要牌：\n[h]要牌 [q]翻牌\n");
+        scanf("%c", &command);
+        if (command == 'q' || command == 'Q') // 玩家停止要牌後莊家要牌
+        {
+            printf("莊家抽到的牌：\n");
+            while (dealerpoints < 17)
             {
-                srand(time(NULL) + i);
-                playerpoints += Blackjack(0, &playerAceCount);
-            }
-            printf("\n玩家點數： %d\n", playerpoints);
-            printf("\n莊家的牌：\n");
-            for (int i = 2; i < 4; i++) // 莊家顯示初始牌
-            {
-                srand(time(NULL) - i);
-                dealerpoints += Blackjack(i != 3, &dealerAceCount);
+                srand(time(NULL) + n);
+                n++;
+
+                dealerpoints += Blackjack(0, &dealerAceCount);
+
+                if (dealerpoints > 21)
+                {
+                    printf("玩家點數： %d\n", playerpoints);
+                    printf("莊家點數： %d\n", dealerpoints);
+                    printf("莊家BURST! 你贏了\n");
+                    break;
+                }
             }
             printf("\n");
-            char command = getchar();
-            printf("\n是否要牌：\n[h]要牌 [q]翻牌\n");
-            scanf("%c", &command);
-            if (command == 'q' || command == 'Q') // 玩家停止要牌後莊家要牌
+            if (dealerpoints <= 21)
             {
-                printf("莊家抽到的牌：\n");
-                while (dealerpoints < 17)
+                printf("玩家點數： %d\n", playerpoints);
+                printf("莊家點數： %d\n", dealerpoints);
+
+                if (playerpoints > dealerpoints)
                 {
-                    srand(time(NULL) + n);
-                    n++;
-
-                    dealerpoints += Blackjack(0, &dealerAceCount);
-
-                    if (dealerpoints > 21)
-                    {
-                        printf("\n玩家點數： %d\n", playerpoints);
-                        printf("\n莊家點數： %d\n", dealerpoints);
-                        printf("莊家BURST! 你贏了\n");
-                        break;
-                    }
+                    printf("玩家贏了\n");
                 }
-                printf("\n");
-                if (dealerpoints <= 21)
+                else if (playerpoints < dealerpoints)
                 {
-                    printf("\n玩家點數： %d\n", playerpoints);
-                    printf("莊家點數： %d\n", dealerpoints);
-
-                    if (playerpoints > dealerpoints)
-                    {
-                        printf("玩家贏了\n");
-                    }
-                    else if (playerpoints < dealerpoints)
-                    {
-                        printf("莊家贏了\n");
-                    }
-                    else
-                    {
-                        printf("平局\n");
-                    }
+                    printf("莊家贏了\n");
+                }
+                else
+                {
+                    printf("平局\n");
                 }
             }
-            /*玩家輸入h要牌*/
-            else if (command == 'h' || command == 'H')
+        }
+        /*玩家輸入h要牌*/
+        else if (command == 'h' || command == 'H')
+        {
+            do
             {
-                do
+                srand(time(NULL) + n);
+                n++;
+
+                playerpoints += Blackjack(0, &playerAceCount);
+                printf("玩家點數： %d\n", playerpoints);
+
+                if (playerpoints > 21)
                 {
-                    srand(time(NULL) + n);
-                    n++;
-
-                    playerpoints += Blackjack(0, &playerAceCount);
-                    printf("玩家點數： %d\n\n", playerpoints);
-
-                    if (playerpoints > 21)
+                    printf("BURST! 你輸了\n");
+                    break;
+                }
+                printf("是否要牌：\n[h]要牌 [q]翻牌\n");
+                command = getchar();
+                scanf("%c", &command);
+                if (command == 'q' || command == 'Q') // 玩家停止要牌後由莊家要牌
+                {
+                    printf("莊家抽到的牌：\n");
+                    while (dealerpoints < 17)
                     {
-                        printf("BURST! 你輸了\n");
-                        break;
-                    }
+                        srand(time(NULL) + n);
+                        n++;
 
-                    command = getchar();
-                    scanf("%c", &command);
-                    if (command == 'q' || command == 'Q') // 玩家停止要牌後由莊家要牌
-                    {
-                        printf("莊家抽到的牌：\n");
-                        while (dealerpoints < 17)
-                        {
-                            srand(time(NULL) + n);
-                            n++;
+                        dealerpoints += Blackjack(0, &dealerAceCount);
 
-                            dealerpoints += Blackjack(0, &dealerAceCount);
-
-                            if (dealerpoints > 21)
-                            {
-                                printf("\n莊家點數： %d\n", dealerpoints);
-                                printf("莊家BURST! 你贏了\n");
-                                break;
-                            }
-                        }
-                        printf("\n");
-                        if (dealerpoints <= 21)
+                        if (dealerpoints > 21)
                         {
                             printf("玩家點數： %d\n", playerpoints);
                             printf("莊家點數： %d\n", dealerpoints);
-
-                            if (playerpoints > dealerpoints)
-                            {
-                                printf("玩家贏了\n");
-                            }
-                            else if (playerpoints < dealerpoints)
-                            {
-                                printf("莊家贏了\n");
-                            }
-                            else
-                            {
-                                printf("平局\n");
-                            }
+                            printf("莊家BURST! 你贏了\n");
+                            break;
                         }
                     }
-                } while (command == 'h' || command == 'H');
-            }
-        case 'q':
-            break;
-        case 'r': // 遊戲規則頁
-            rules();
-            command = getchar();
-            game();
-            break;
-        default:
-            printf("指令錯誤，請重新輸入\n輸入指令：");
-            command = 0;
-            while (getchar() != '\n')
-            {
-                continue;
-            }
+                    printf("\n");
+                    if (dealerpoints <= 21)
+                    {
+                        printf("玩家點數： %d\n", playerpoints);
+                        printf("莊家點數： %d\n", dealerpoints);
+
+                        if (playerpoints > dealerpoints)
+                        {
+                            printf("玩家贏了\n");
+                        }
+                        else if (playerpoints < dealerpoints)
+                        {
+                            printf("莊家贏了\n");
+                        }
+                        else
+                        {
+                            printf("平局\n");
+                        }
+                    }
+                }
+            } while (command == 'h' || command == 'H');
         }
+        break;
+    case 'q':
+        break;
+    case 'r': // 遊戲規則頁
+        rules();
+        command = getchar();
+        game();
+        break;
     }
     return 0;
 }
 
 int main()
 {
-    printf("**************************************************\n\t\t    21點\n");
-    printf("**************************************************\n\n");
+    printf("歡迎來到21點\n");
     printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
     game();
-    system("pause");
     return 0;
 }
