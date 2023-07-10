@@ -69,44 +69,56 @@ int game() // 主菜單
     int playerpoints = 0, dealerpoints = 0;
     int playerAceCount = 0, dealerAceCount = 0;
     char command = 0;
-    int n = 0;
+    int n = 0; // 初始化
     while (!command)
     {
         command = getchar();
         switch (command)
         {
         case 'p':
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++) // 玩家顯示初始牌
             {
                 srand(time(NULL) + i);
                 playerpoints += Blackjack(0, &playerAceCount);
             }
             printf("Player points: %d\n", playerpoints);
-            for (int i = 2; i < 4; i++)
+            for (int i = 2; i < 4; i++) // 莊家顯示初始牌
             {
                 srand(time(NULL) - i);
                 dealerpoints += Blackjack(i != 3, &dealerAceCount);
             }
-            printf("Dealer points: %d\n", dealerpoints);
+            printf("\n");
             char command = getchar();
+            scanf("%c", &command);
             if (command == 'q')
             {
                 break;
             }
-            else if (command == 'h')
+            /*玩家輸入h要牌*/
+            else if (command == 'h' || command == 'H')
             {
                 do
                 {
-
                     srand(time(NULL) + n);
                     n++;
 
                     playerpoints += Blackjack(0, &playerAceCount);
                     printf("Player points: %d\n", playerpoints);
 
-                    command = getchar();
+                    if (playerpoints > 21)
+                    {
+                        printf("BURST! You lose\n");
+                        break;
+                    }
 
-                } while (command == 'h');
+                    command = getchar();
+                    scanf("%c", &command);
+                    if (command == 'q' || command == 'Q')
+                    {
+                        printf("Player points: %d\n", playerpoints);
+                        break;
+                    }
+                } while (command == 'h' || command == 'H');
             }
         case 'q':
             break;
