@@ -88,7 +88,7 @@ int game() // 主菜單
             dealerpoints += Blackjack(i != 3, &dealerAceCount);
         }
         printf("\n");
-        char command = getchar();
+        char command = getchar(); // 清除玩家輸入緩衝區
         printf("是否要牌：\n[h]要牌 [q]翻牌\n");
         scanf("%c", &command);
         if (command == 'q' || command == 'Q') // 玩家停止要牌後莊家要牌
@@ -195,6 +195,10 @@ int game() // 主菜單
         rules();
         command = getchar();
         game();
+        break;
+    default:
+        printf("指令錯誤，請重新輸入\n輸入指令：");
+        command = getchar(); // 清除玩家輸入緩衝區
         break;
     }
     return 0;
