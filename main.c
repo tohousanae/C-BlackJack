@@ -105,7 +105,6 @@ int game() // 主菜單
                         n++;
 
                         dealerpoints += Blackjack(0, &dealerAceCount);
-                        printf("莊家點數： %d\n", dealerpoints);
 
                         if (dealerpoints > 21)
                         {
@@ -113,7 +112,7 @@ int game() // 主菜單
                             break;
                         }
                     }
-
+                    printf("\n");
                     if (dealerpoints <= 21)
                     {
                         printf("玩家點數： %d\n", playerpoints);
@@ -154,7 +153,7 @@ int game() // 主菜單
 
                     command = getchar();
                     scanf("%c", &command);
-                    if (command == 'q' || command == 'Q')
+                    if (command == 'q' || command == 'Q') // 玩家停止要牌後由莊家要牌
                     {
                         printf("莊家的牌：\n");
                         while (dealerpoints < 17)
@@ -163,7 +162,6 @@ int game() // 主菜單
                             n++;
 
                             dealerpoints += Blackjack(0, &dealerAceCount);
-                            printf("莊家點數： %d\n", dealerpoints);
 
                             if (dealerpoints > 21)
                             {
@@ -171,7 +169,7 @@ int game() // 主菜單
                                 break;
                             }
                         }
-
+                        printf("\n");
                         if (dealerpoints <= 21)
                         {
                             printf("玩家點數： %d\n", playerpoints);
