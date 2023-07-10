@@ -93,7 +93,7 @@ int game() // 主菜單
             char command = getchar();
             printf("\n是否要牌：\n[h]要牌 [q]翻牌\n");
             scanf("%c", &command);
-            if (command == 'q')
+            if (command == 'q') // 玩家停止要牌後莊家要牌
             {
                 printf("玩家點數： %d\n\n", playerpoints);
                 if (command == 'q' || command == 'Q')
