@@ -108,6 +108,7 @@ int game() // 主菜單
 
                         if (dealerpoints > 21)
                         {
+                            printf("莊家點數： %d\n", dealerpoints);
                             printf("莊家BURST! 你贏了\n");
                             break;
                         }
@@ -165,6 +166,7 @@ int game() // 主菜單
 
                             if (dealerpoints > 21)
                             {
+                                printf("莊家點數： %d\n", dealerpoints);
                                 printf("莊家BURST! 你贏了\n");
                                 break;
                             }
