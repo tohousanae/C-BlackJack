@@ -76,7 +76,7 @@ int game() // 主菜單
         switch (command)
         {
         case 'p':
-            printf("你擁有的牌：\n");
+            printf("玩家的牌：\n");
             for (int i = 0; i < 2; i++) // 玩家顯示初始牌
             {
                 srand(time(NULL) + i);
