@@ -108,7 +108,7 @@ int game() // 主菜單
 
                         if (dealerpoints > 21)
                         {
-                            printf("莊家點數： %d\n", dealerpoints);
+                            printf("\n莊家點數： %d\n", dealerpoints);
                             printf("莊家BURST! 你贏了\n");
                             break;
                         }
@@ -144,7 +144,7 @@ int game() // 主菜單
                     n++;
 
                     playerpoints += Blackjack(0, &playerAceCount);
-                    printf("玩家點數： %d\n", playerpoints);
+                    printf("玩家點數： %d\n\n", playerpoints);
 
                     if (playerpoints > 21)
                     {
@@ -166,7 +166,7 @@ int game() // 主菜單
 
                             if (dealerpoints > 21)
                             {
-                                printf("莊家點數： %d\n", dealerpoints);
+                                printf("\n莊家點數： %d\n", dealerpoints);
                                 printf("莊家BURST! 你贏了\n");
                                 break;
                             }
