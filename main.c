@@ -6,7 +6,13 @@
 int Blackjack(int hideCard, int *aceCount);
 int game();
 int rules();
+void cleanup();
 
+void cleanup()
+{
+    printf("離開遊戲...\n");
+    // 执行一些清理操作...
+}
 int Blackjack(int hideCard, int *aceCount) // 抽牌並轉換成點數
 {
     char *cardfaces[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
@@ -90,12 +96,12 @@ int game() // 主菜單
             dealerpoints += Blackjack(i != 3, &dealerAceCount);
         }
         printf("\n");
-        printf("是否要牌：\n[h]要牌 [q]翻牌\n");
+        printf("是否要牌：\n[h]要牌 [f]翻牌\n");
         command = getchar();
         while (getchar() != '\n')
         {
         }                   // 清空输入缓冲区中的剩余字符
-        if (command == 'q') // 玩家停止要牌後莊家要牌
+        if (command == 'f') // 玩家停止要牌後莊家要牌
         {
             printf("莊家的要牌：\n");
             while (dealerpoints < 17) // 莊家在17點前必須要牌
@@ -149,12 +155,12 @@ int game() // 主菜單
                     printf("BURST! 你輸了\n");
                     break;
                 }
-                printf("是否要牌：\n[h]要牌 [q]翻牌\n");
+                printf("是否要牌：\n[h]要牌 [f]翻牌\n");
                 command = getchar();
                 while (getchar() != '\n')
                 {
-                }                                     // 清空输入缓冲区中的剩余字符
-                if (command == 'q' || command == 'Q') // 玩家停止要牌後由莊家要牌
+                }                   // 清空输入缓冲区中的剩余字符
+                if (command == 'f') // 玩家停止要牌後由莊家要牌
                 {
                     printf("莊家的要牌：\n");
                     while (dealerpoints < 17)
@@ -192,7 +198,7 @@ int game() // 主菜單
                         }
                     }
                 }
-            } while (command == 'h' || command == 'H');
+            } while (command == 'h');
         }
     }
 
@@ -201,10 +207,18 @@ int game() // 主菜單
         rules();
         game();
     }
+    else if (command == 'q') // 退出程序
+    {
+        atexit(cleanup);
+
+        // 一些程序逻辑...
+
+        // 终止程序并返回退出码0
+        exit(0);
+    }
     else
     {
         printf("指令錯誤，請重新輸入\n輸入指令：");
-        printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
         game();
     }
 
@@ -217,7 +231,7 @@ int main()
     do
     {
         game();
-        printf("\n再來一局嗎？[y]再來一局 [n]離開遊戲\n");
+        printf("再來一局嗎？[y]再來一局 [n]離開遊戲\n");
         command = getchar();
         while (getchar() != '\n')
         {
