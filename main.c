@@ -77,14 +77,14 @@ int game() // 主菜單
     } // 清空输入缓冲区中的剩余字符
     if (command == 'p')
     {
-        printf("玩家的牌：\n");
+        printf("玩家目前有的牌：\n");
         for (int i = 0; i < 2; i++) // 玩家顯示初始牌
         {
             srand(time(NULL) + i);
             playerpoints += Blackjack(0, &playerAceCount);
         }
         printf("玩家點數： %d\n", playerpoints);
-        printf("莊家的牌：\n");
+        printf("莊家目前有的牌：\n");
         for (int i = 2; i < 4; i++) // 莊家顯示初始牌
         {
             srand(time(NULL) - i);
@@ -98,7 +98,7 @@ int game() // 主菜單
         }                   // 清空输入缓冲区中的剩余字符
         if (command == 'q') // 玩家停止要牌後莊家要牌
         {
-            printf("莊家抽到的牌：\n");
+            printf("莊家的要牌：\n");
             while (dealerpoints < 17) // 莊家在17點前必須要牌
             {
                 srand(time(NULL) + n);
@@ -157,7 +157,7 @@ int game() // 主菜單
                 }                                     // 清空输入缓冲区中的剩余字符
                 if (command == 'q' || command == 'Q') // 玩家停止要牌後由莊家要牌
                 {
-                    printf("莊家抽到的牌：\n");
+                    printf("莊家的要牌：\n");
                     while (dealerpoints < 17)
                     {
                         srand(time(NULL) + n);
@@ -205,9 +205,9 @@ int game() // 主菜單
     else
     {
         printf("指令錯誤，請重新輸入\n輸入指令：");
+        printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
         game();
     }
-    printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
 
     return 0;
 }
