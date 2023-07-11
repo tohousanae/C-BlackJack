@@ -236,6 +236,16 @@ int main()
         while (getchar() != '\n')
         {
         } // 清空输入缓冲区中的剩余字符
+        if (command == 'n')
+        {
+            atexit(cleanup);
+
+            // 一些程序逻辑...
+
+            // 终止程序并返回退出码0
+            exit(0);
+        }
+
     } while (command == 'y');
     system("pause");
     return 0;
