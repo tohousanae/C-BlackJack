@@ -247,6 +247,5 @@ int main()
         }
 
     } while (command == 'y');
-    system("pause");
     return 0;
 }
