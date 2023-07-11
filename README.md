@@ -1,3 +1,6 @@
 # C-BlackJack
-<br>
-開啟main.exe，依照指示輸入指令，於剛開始的選單畫面輸入r可查看遊戲規則
+21點撲克牌遊戲
+
+## 遊戲規則
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/465845f2-afc3-4450-bbe6-7aa42e79d3e8)
+
