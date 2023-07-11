@@ -198,10 +198,20 @@ int game() // 主菜單
                         }
                     }
                 }
+
             } while (command == 'h');
         }
-    }
+        else
+        {
+            printf("指令錯誤，將終止程序\n");
+            atexit(cleanup);
 
+            // 一些程序逻辑...
+
+            // 终止程序并返回退出码0
+            exit(0);
+        }
+    }
     else if (command == 'r') // 遊戲規則頁
     {
         rules();
