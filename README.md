@@ -8,7 +8,7 @@
 依照畫面指示遊玩
 
 ## 安裝
-到Release處下載main.exe並執行
+到Release處點擊版本號v1.x.x下載main.exe並執行
 
 ## 遊戲畫面
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
