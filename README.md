@@ -11,5 +11,8 @@
 點擊右上角的![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/d194e8ea-5508-4422-8729-227a9aa49002)按鈕，並解壓縮
 
 ## 遊戲畫面
-![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/46094646-e4e9-4e6f-9b59-ec403ad35958)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/39ce6396-6226-429f-8ff6-42fb8e6cd56c)
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
+
+
 
