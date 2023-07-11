@@ -61,16 +61,15 @@ int rules()
     printf("10.如果莊家選擇停止抽牌，比較玩家和莊家的牌面點數。點數更接近21點的一方獲勝。\n");
     printf("11.如果玩家和莊家的點數相同，則平局。\n\n");
     printf("請再次輸入指令：\n");
-    printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
     return 0;
 }
 int game() // 主菜單
 {
+    printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
     int playerpoints = 0, dealerpoints = 0;
     int playerAceCount = 0, dealerAceCount = 0;
     char command;
     int n = 0; // 初始化
-    int c;
     command = getchar();
     while (getchar() != '\n')
     {
@@ -214,9 +213,16 @@ int game() // 主菜單
 
 int main()
 {
-    printf("歡迎來到21點\n");
-    printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
-    game();
+    char command;
+    do
+    {
+        game();
+        printf("\n再來一局嗎？[y]再來一局 [n]離開遊戲\n");
+        command = getchar();
+        while (getchar() != '\n')
+        {
+        } // 清空输入缓冲区中的剩余字符
+    } while (command == 'y');
     system("pause");
     return 0;
 }
