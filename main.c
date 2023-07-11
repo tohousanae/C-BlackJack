@@ -85,14 +85,14 @@ int game() // 主菜單
         printf("玩家目前有的牌：\n");
         for (int i = 0; i < 2; i++) // 玩家顯示初始牌
         {
-            srand(time(NULL) + i);
+            srand(time(NULL) + 3 * i - 2 * i);
             playerpoints += Blackjack(0, &playerAceCount);
         }
         printf("玩家點數： %d\n", playerpoints);
         printf("莊家目前有的牌：\n");
         for (int i = 2; i < 4; i++) // 莊家顯示初始牌
         {
-            srand(time(NULL) - i);
+            srand(time(NULL) - 3 * i + 2 * i);
             dealerpoints += Blackjack(i != 3, &dealerAceCount);
         }
         printf("\n");
@@ -106,7 +106,7 @@ int game() // 主菜單
             printf("莊家的要牌：\n");
             while (dealerpoints < 17) // 莊家在17點前必須要牌
             {
-                srand(time(NULL) + n);
+                srand(time(NULL) + 3 * n - 2 * n);
                 n++;
 
                 dealerpoints += Blackjack(0, &dealerAceCount);
@@ -144,7 +144,7 @@ int game() // 主菜單
         {
             do
             {
-                srand(time(NULL) + n);
+                srand(time(NULL) - 2 * n + 3 * n);
                 n++;
 
                 playerpoints += Blackjack(0, &playerAceCount);
