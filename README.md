@@ -25,6 +25,6 @@
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
 
 ## 已知bug
-要牌階段輸入h或f以外的指令會出現再來一局對話框
+1.要牌階段輸入h或f以外的指令會出現再來一局對話框
 
 
