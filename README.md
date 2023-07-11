@@ -8,7 +8,7 @@
 開啟main.exe，依照指示遊玩
 
 ## 安裝
-點擊右上角的![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/d194e8ea-5508-4422-8729-227a9aa49002)按鈕，並解壓縮
+點擊右上角的code按鈕選Downlad Zip，並解壓縮
 
 ## 遊戲畫面
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
