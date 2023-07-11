@@ -27,4 +27,5 @@
 ## 已知bug
 1.要牌階段輸入h或f以外的指令會出現再來一局對話框
 
-
+##　參考文獻
+１.https://aries.dyu.edu.tw/~thhu/C1/hw05_4.pdf
