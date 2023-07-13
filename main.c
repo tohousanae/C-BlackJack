@@ -13,7 +13,9 @@ void cleanup()
     printf("離開遊戲...\n");
     // 执行一些清理操作...
 }
-int Blackjack(int hideCard, int *aceCount) // 抽牌並轉換成點數
+
+/*抽牌並轉換成點數*/
+int Blackjack(int hideCard, int *aceCount)
 {
     char *cardfaces[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
     char *cardsuits[] = {"♠", "\033[31m♥\033[m", "\033[31m♦\033[m", "♣"};
@@ -69,7 +71,9 @@ int rules()
     printf("請再次輸入指令：\n");
     return 0;
 }
-int game() // 主菜單
+
+/*主菜單*/
+int game() 
 {
     printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
     int playerpoints = 0, dealerpoints = 0;
@@ -139,6 +143,7 @@ int game() // 主菜單
                 }
             }
         }
+        
         /*玩家輸入h要牌*/
         else if (command == 'h')
         {
