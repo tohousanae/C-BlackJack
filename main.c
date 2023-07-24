@@ -10,11 +10,11 @@ void cleanup();
 
 void cleanup()
 {
-    printf("離開遊戲...\n");
-    // 执行一些清理操作...
+    printf("Exiting the game...\n");
+    // Perform some cleanup operations...
 }
 
-/*抽牌並轉換成點數*/
+/*Draw a card and convert it into points*/
 int Blackjack(int hideCard, int *aceCount)
 {
     char *cardfaces[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
@@ -55,60 +55,61 @@ int Blackjack(int hideCard, int *aceCount)
 
     return points;
 }
+
 int rules()
 {
-    printf("1.遊戲的目標是接近或達到21點，但不能超過21點。\n");
-    printf("2.牌面點數：2-10的牌按照其點數計算；J、Q、K按照10點計算；A 牌當作 11 點(本程式中以‘1’當作‘A’)，但是第二個 A 牌以後皆為 1 點\n");
-    printf("3.遊戲開始時，玩家和莊家會分別發兩張牌。\n");
-    printf("4.玩家可以看到自己的兩張牌，但只能看到莊家的一張牌。\n");
-    printf("5.玩家可以選擇繼續抽牌（Hit）或停止抽牌（Stand）。\n");
-    printf("6.如果玩家的牌面點數超過21點，玩家爆牌，遊戲結束，莊家獲勝。\n");
-    printf("7.如果玩家選擇停止抽牌，輪到莊家進行操作。\n");
-    printf("8.莊家會根據固定的規則來決定是否抽牌。莊家在取得17點之前必須要牌，莊家如果拿牌五張而沒有爆牌則視為莊家勝利。\n");
-    printf("9.如果莊家的牌面點數超過21點，莊家爆牌，玩家獲勝。\n");
-    printf("10.如果莊家選擇停止抽牌，比較玩家和莊家的牌面點數。點數更接近21點的一方獲勝。\n");
-    printf("11.如果玩家和莊家的點數相同，則平局。\n\n");
-    printf("請再次輸入指令：\n");
+    printf("1. The goal of the game is to get as close to or reach 21 points without exceeding 21.\n");
+    printf("2. Card values: Cards 2-10 count as their face value; J, Q, K count as 10 points; A counts as 11 points (represented as '1' in this program), but subsequent A's count as 1 point.\n");
+    printf("3. At the beginning of the game, the player and the dealer are dealt two cards each.\n");
+    printf("4. The player can see both of their cards, but can only see one of the dealer's cards.\n");
+    printf("5. The player can choose to draw another card (Hit) or stop drawing cards (Stand).\n");
+    printf("6. If the player's total points exceed 21, the player busts, and the game ends with the dealer winning.\n");
+    printf("7. If the player chooses to stand, it's the dealer's turn to play.\n");
+    printf("8. The dealer follows fixed rules to decide whether to draw cards. The dealer must draw cards until they have 17 points or more. If the dealer draws a total of five cards without busting, the dealer wins.\n");
+    printf("9. If the dealer's total points exceed 21, the dealer busts, and the player wins.\n");
+    printf("10. If the dealer chooses to stand, the points of the player and the dealer are compared, and the one closer to 21 points wins.\n");
+    printf("11. If the player and the dealer have the same number of points, it's a tie.\n\n");
+    printf("Please input the command again:\n");
     return 0;
 }
 
-/*主菜單*/
-int game() 
+/*Main menu*/
+int game()
 {
-    printf("[p]開始遊戲  [q]離開遊戲  [r]遊戲規則\n");
+    printf("[p]Start Game  [q]Exit Game  [r]Game Rules\n");
     int playerpoints = 0, dealerpoints = 0;
     int playerAceCount = 0, dealerAceCount = 0;
     char command;
-    int n = 0; // 初始化
+    int n = 0; // Initialize
     command = getchar();
     while (getchar() != '\n')
     {
-    } // 清空输入缓冲区中的剩余字符
+    } // Clear any remaining characters in the input buffer
     if (command == 'p')
     {
-        printf("玩家目前有的牌：\n");
-        for (int i = 0; i < 2; i++) // 玩家顯示初始牌
+        printf("Player's current cards:\n");
+        for (int i = 0; i < 2; i++) // Display initial player cards
         {
             srand(time(NULL) + 3 * i - 2 * i);
             playerpoints += Blackjack(0, &playerAceCount);
         }
-        printf("玩家點數： %d\n", playerpoints);
-        printf("莊家目前有的牌：\n");
-        for (int i = 2; i < 4; i++) // 莊家顯示初始牌
+        printf("Player points: %d\n", playerpoints);
+        printf("Dealer's current cards:\n");
+        for (int i = 2; i < 4; i++) // Display initial dealer cards
         {
             srand(time(NULL) - 3 * i + 2 * i);
             dealerpoints += Blackjack(i != 3, &dealerAceCount);
         }
         printf("\n");
-        printf("是否要牌：\n[h]要牌 [f]翻牌\n");
+        printf("Do you want to draw another card?\n[h]Hit [f]Flip the cards\n");
         command = getchar();
         while (getchar() != '\n')
         {
-        }                   // 清空输入缓冲区中的剩余字符
-        if (command == 'f') // 玩家停止要牌後莊家要牌
+        } // Clear any remaining characters in the input buffer
+        if (command == 'f') // Player stops drawing cards, and it's the dealer's turn to play
         {
-            printf("莊家的要牌：\n");
-            while (dealerpoints < 17) // 莊家在17點前必須要牌
+            printf("Dealer's turn to draw cards:\n");
+            while (dealerpoints < 17) // The dealer must draw cards until they have 17 points or more
             {
                 srand(time(NULL) + 3 * n - 2 * n);
                 n++;
@@ -117,34 +118,34 @@ int game()
 
                 if (dealerpoints > 21)
                 {
-                    printf("\n玩家點數： %d\n", playerpoints);
-                    printf("莊家點數： %d\n", dealerpoints);
-                    printf("莊家BURST! 你贏了\n");
+                    printf("\nPlayer points: %d\n", playerpoints);
+                    printf("Dealer points: %d\n", dealerpoints);
+                    printf("Dealer BUSTED! You win\n");
                     break;
                 }
             }
             printf("\n");
             if (dealerpoints <= 21)
             {
-                printf("玩家點數： %d\n", playerpoints);
-                printf("莊家點數： %d\n", dealerpoints);
+                printf("Player points: %d\n", playerpoints);
+                printf("Dealer points: %d\n", dealerpoints);
 
                 if (playerpoints > dealerpoints)
                 {
-                    printf("玩家贏了\n");
+                    printf("Player wins\n");
                 }
                 else if (playerpoints < dealerpoints)
                 {
-                    printf("莊家贏了\n");
+                    printf("Dealer wins\n");
                 }
                 else
                 {
-                    printf("平局\n");
+                    printf("Tie\n");
                 }
             }
         }
-        
-        /*玩家輸入h要牌*/
+
+        /*Player enters 'h' to draw another card*/
         else if (command == 'h')
         {
             do
@@ -153,21 +154,21 @@ int game()
                 n++;
 
                 playerpoints += Blackjack(0, &playerAceCount);
-                printf("玩家點數： %d\n", playerpoints);
+                printf("Player points: %d\n", playerpoints);
 
                 if (playerpoints > 21)
                 {
-                    printf("BURST! 你輸了\n");
+                    printf("BUSTED! You lose\n");
                     break;
                 }
-                printf("是否要牌：\n[h]要牌 [f]翻牌\n");
+                printf("Do you want to draw another card?\n[h]Hit [f]Flip the cards\n");
                 command = getchar();
                 while (getchar() != '\n')
                 {
-                }                   // 清空输入缓冲区中的剩余字符
-                if (command == 'f') // 玩家停止要牌後由莊家要牌
+                } // Clear any remaining characters in the input buffer
+                if (command == 'f') // Player stops drawing cards, and it's the dealer's turn to play
                 {
-                    printf("莊家的要牌：\n");
+                    printf("Dealer's turn to draw cards:\n");
                     while (dealerpoints < 17)
                     {
                         srand(time(NULL) + n);
@@ -177,29 +178,29 @@ int game()
 
                         if (dealerpoints > 21)
                         {
-                            printf("\n玩家點數： %d\n", playerpoints);
-                            printf("莊家點數： %d\n", dealerpoints);
-                            printf("莊家BURST! 你贏了\n");
+                            printf("\nPlayer points: %d\n", playerpoints);
+                            printf("Dealer points: %d\n", dealerpoints);
+                            printf("Dealer BUSTED! You win\n");
                             break;
                         }
                     }
                     printf("\n");
                     if (dealerpoints <= 21)
                     {
-                        printf("玩家點數： %d\n", playerpoints);
-                        printf("莊家點數： %d\n", dealerpoints);
+                        printf("Player points: %d\n", playerpoints);
+                        printf("Dealer points: %d\n", dealerpoints);
 
                         if (playerpoints > dealerpoints)
                         {
-                            printf("玩家贏了\n");
+                            printf("Player wins\n");
                         }
                         else if (playerpoints < dealerpoints)
                         {
-                            printf("莊家贏了\n");
+                            printf("Dealer wins\n");
                         }
                         else
                         {
-                            printf("平局\n");
+                            printf("Tie\n");
                         }
                     }
                 }
@@ -208,32 +209,32 @@ int game()
         }
         else
         {
-            printf("指令錯誤，將終止程序\n");
+            printf("Invalid command. Terminating the program.\n");
             atexit(cleanup);
 
-            // 一些程序逻辑...
+            // Some program logic...
 
-            // 终止程序并返回退出码0
+            // Terminate the program and return exit code 0
             exit(0);
         }
     }
-    else if (command == 'r') // 遊戲規則頁
+    else if (command == 'r') // Game rules page
     {
         rules();
         game();
     }
-    else if (command == 'q') // 退出程序
+    else if (command == 'q') // Exit the program
     {
         atexit(cleanup);
 
-        // 一些程序逻辑...
+        // Some program logic...
 
-        // 终止程序并返回退出码0
+        // Terminate the program and return exit code 0
         exit(0);
     }
     else
     {
-        printf("指令錯誤，請重新輸入\n輸入指令：");
+        printf("Invalid command. Please input again.\nInput command:");
         game();
     }
 
@@ -246,18 +247,18 @@ int main()
     do
     {
         game();
-        printf("再來一局嗎？[y]再來一局 [n]離開遊戲\n");
+        printf("Play again? [y]Play again [n]Exit the game\n");
         command = getchar();
         while (getchar() != '\n')
         {
-        } // 清空输入缓冲区中的剩余字符
+        } // Clear any remaining characters in the input buffer
         if (command == 'n')
         {
             atexit(cleanup);
 
-            // 一些程序逻辑...
+            // Some program logic...
 
-            // 终止程序并返回退出码0
+            // Terminate the program and return exit code 0
             exit(0);
         }
 
