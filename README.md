@@ -18,7 +18,7 @@
 依照畫面指示遊玩
 
 ## 遊戲畫面
-為了避免轉碼問題目前全遊戲的中文字已翻譯成英文，以下為舊版遊戲畫面：<br>
+為了避免轉碼問題目前全遊戲的中文字已翻譯成英文，以下為舊版遊戲畫面：<br><br>
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
 
