@@ -18,7 +18,7 @@ void cleanup()
 int Blackjack(int hideCard, int *aceCount)
 {
     char *cardfaces[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-    char *cardsuits[] = {"♠", "\033[31m♥\033[m", "\033[31m♦\033[m", "♣"};
+    char *cardsuits[] = {"♠", "♥", "♦", "♣"};
     int totalPoints = 0;
     int randomIndex = rand() % (sizeof(cardfaces) / sizeof(cardfaces[0]));
     char *randomNumber = cardfaces[randomIndex];
