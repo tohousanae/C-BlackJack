@@ -21,8 +21,9 @@
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
 
-## 遊玩方法
-依照畫面指示遊玩
+## 注意事項
+請確保系統文字格式為utf-8，可在windows當中的"控制台->變更日期、時間或數字格式->系統管理->變更系統地區設定->打勾"Beta: Unicode UTF-8 提供全球語言支援(U)"，並重新啟動。如下圖:
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/b1bd3bb4-8aa0-4dc1-8475-82591e325a4d)
 
 ## 已知bug
 1.要牌階段輸入h或f以外的指令會出現再來一局對話框
