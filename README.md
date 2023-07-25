@@ -21,6 +21,9 @@
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
 
+## 遊玩方法
+依照畫面指示遊玩
+
 ## 已知bug
 1.要牌階段輸入h或f以外的指令會出現再來一局對話框
 
