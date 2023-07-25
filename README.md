@@ -23,6 +23,7 @@
 
 ## 注意事項
 請確保系統文字格式為utf-8，可在windows當中的"控制台->變更日期、時間或數字格式->系統管理->變更系統地區設定->打勾"Beta: Unicode UTF-8 提供全球語言支援(U)"，並重新啟動。如下圖:
+<br>
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/b1bd3bb4-8aa0-4dc1-8475-82591e325a4d)
 
 ## 已知bug
