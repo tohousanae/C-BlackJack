@@ -4,7 +4,7 @@
 		{
 			"type": "cppbuild",
 			"label": "C/C++: gcc.exe 建置使用中檔案",
-			"command": "C:\\mingw64\\bin\\gcc.exe",
+			"command": "C:\\Users\\MIRDC\\mingw64\\bin\\gcc.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
