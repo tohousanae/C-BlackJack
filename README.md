@@ -18,8 +18,8 @@
 依照畫面指示遊玩
 
 ## 遊戲畫面
-![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/cc8d743f-67d1-4fec-838d-54eebe615dfa)![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/2cf273d3-eac5-4dd3-a760-41a76d95879f)
-![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/356207eb-24ce-45c6-a816-12d663845dc9)
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/75118d2e-fa4c-40d6-95c7-e81c9006010c)
+![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/eac9b158-7e91-461f-afe8-c7248da4a4c2)
 
 ## 注意事項
 請確保系統文字格式為utf-8，可在windows當中的"控制台->變更日期、時間或數字格式->系統管理->變更系統地區設定->打勾"Beta: Unicode UTF-8 提供全球語言支援(U)"，並重新啟動。
