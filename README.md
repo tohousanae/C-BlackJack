@@ -22,7 +22,7 @@
 ![image](https://github.com/tohousanae/C-BlackJack/assets/122202405/eac9b158-7e91-461f-afe8-c7248da4a4c2)
 
 ## 注意事項
-請確保系統文字格式為utf-8，可在windows當中的"控制台->變更日期、時間或數字格式->系統管理->變更系統地區設定->打勾"Beta: Unicode UTF-8 提供全球語言支援(U)"，並重新啟動。
+開啟遊戲時請確保系統文字格式為utf-8，可在windows當中的"控制台->變更日期、時間或數字格式->系統管理->變更系統地區設定->打勾"Beta: Unicode UTF-8 提供全球語言支援(U)"，並重新啟動。
 
 ## 已知bug
 1.要牌階段輸入h或f以外的指令會出現再來一局對話框
